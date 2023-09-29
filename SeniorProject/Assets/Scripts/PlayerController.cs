@@ -41,4 +41,10 @@ public class PlayerController : MonoBehaviour
 
         transform.position = currentPosition;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Grass")
+            UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene");
+    }
 }
