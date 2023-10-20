@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public float speed = 10f;
+    public float randEnc = 1f;
     private float minX = -5.5f;
     private float maxX = 5.5f;
     private float minY = -4.5f;
@@ -42,9 +43,15 @@ public class PlayerController : MonoBehaviour
         transform.position = currentPosition;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Grass")
-            UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene");
+        {
+            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)     // only roll while player is moving
+            {
+                if (randEnc >= Random.Range(0, 100))
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene");
+            }
+        }
     }
 }
