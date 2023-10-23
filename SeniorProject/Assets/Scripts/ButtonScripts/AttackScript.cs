@@ -8,6 +8,8 @@ public class AttackScript : MonoBehaviour
     public int maxEnemyHealth = 100;
     public int enemyHealth = 100;
 
+    public GameObject controller;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +28,13 @@ public class AttackScript : MonoBehaviour
     public void attack()
     {
             enemyHealth = enemyHealth - (maxEnemyHealth / 10);
+            controller.GetComponent<NewBehaviourScript>().TakeDamage(10f);
+    }
+    public float getMaxHealth() {
+        return maxEnemyHealth;
+    }
+    public float getEnemyHealth()
+    {
+        return enemyHealth;
     }
 }
