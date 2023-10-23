@@ -7,10 +7,10 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 10f;
     public float randEnc = 1f;
-    private float minX = -5.5f;
+    /* private float minX = -5.5f;
     private float maxX = 5.5f;
-    private float minY = -4.5f;
-    private float maxY = 4.5f;
+    private float minY = -4.5f;     // disabled to remove artifical boundaries (1)
+    private float maxY = 4.5f; */
 
     // Start is called before the first frame update
     void Start()
@@ -28,17 +28,17 @@ public class PlayerController : MonoBehaviour
         Vector2 currentPosition = transform.position;
         currentPosition.x += Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
-        if (currentPosition.x < minX)
+        /* if (currentPosition.x < minX)    // (1)
             currentPosition.x = minX;
         if (currentPosition.x > maxX)
-            currentPosition.x = maxX;
+            currentPosition.x = maxX; */
 
         currentPosition.y += Input.GetAxis("Vertical") * speed * Time.deltaTime;
 
-        if (currentPosition.y < minY)
+        /* if (currentPosition.y < minY)    // (1)
             currentPosition.y = minY;
         if (currentPosition.y > maxY)
-            currentPosition.y = maxY;
+            currentPosition.y = maxY; */
 
         transform.position = currentPosition;
     }
