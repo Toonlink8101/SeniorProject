@@ -913,7 +913,7 @@ GameObject:
   - component: {fileID: 1156110569}
   - component: {fileID: 1156110568}
   m_Layer: 5
-  m_Name: AttackButton
+  m_Name: AttackButtonPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1292,7 +1292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1601846529}
   m_Layer: 5
-  m_Name: Healthbar
+  m_Name: HealthbarEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
