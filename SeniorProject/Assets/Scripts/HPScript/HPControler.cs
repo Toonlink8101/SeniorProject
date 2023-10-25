@@ -9,6 +9,8 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject button;
     public float HealthAmt;
     public float HealthMax;
+    public Image Shield;
+    public bool IsShield = false;
    // public Text currentHealth;
    // public Text Maxhealth;
 
@@ -28,18 +30,15 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            TakeDamage(20);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Heal(10);
-        }
+       
     }
     public void TakeDamage(float damage)
     {
+        if (IsShield)
+        {
+            RemoveShield();
+            return;
+        }
        HealthAmt -= damage;
        HealthBar.fillAmount = HealthAmt / HealthMax;
        // currentHealth.text = HealthAmt.ToString();
@@ -53,6 +52,17 @@ public class NewBehaviourScript : MonoBehaviour
        // HealthAmt = Mathf.Clamp(HealthAmt, 0, HealthMax);
        // HealthBar.fillAmount = HealthAmt / HealthMax;
        // currentHealth.text = HealthAmt.ToString();
+    }
+
+    public void AddShield() {
+        Shield.fillAmount = .75f;
+        IsShield = true;
+    }
+
+    public void RemoveShield()
+    {
+        Shield.fillAmount = 0f;
+        IsShield = false;
     }
 
 }
