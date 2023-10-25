@@ -7,6 +7,7 @@ public class AttackScript : MonoBehaviour
 
     public int maxEnemyHealth = 100;
     public int enemyHealth = 100;
+    public int dmg = 10;
 
     public GameObject controller;
 
@@ -27,8 +28,8 @@ public class AttackScript : MonoBehaviour
 
     public void attack()
     {
-            enemyHealth = enemyHealth - (maxEnemyHealth / 10);
-            controller.GetComponent<NewBehaviourScript>().TakeDamage(10f);
+            enemyHealth = enemyHealth - dmg;
+            controller.GetComponent<NewBehaviourScript>().TakeDamage(dmg);
     }
     public float getMaxHealth() {
         return maxEnemyHealth;
