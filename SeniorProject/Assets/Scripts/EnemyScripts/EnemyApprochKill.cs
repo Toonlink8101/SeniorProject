@@ -19,7 +19,7 @@ public class EnemyApprochKill : MonoBehaviour
 
     IEnumerator killthis()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(1f);
         this.gameObject.SetActive(false);
     }
 }
