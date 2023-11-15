@@ -54,4 +54,17 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "Npc1")
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene");
+        }
+
+        if (collision.name == "Boss1")
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene");
+        }
+    }
 }
