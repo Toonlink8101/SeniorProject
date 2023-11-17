@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,10 +13,14 @@ public class PlayerController : MonoBehaviour
     private float minY = -4.5f;     // disabled to remove artifical boundaries (1)
     private float maxY = 4.5f; */
 
+    public Text npcTalk;
+    public Text bossTalk;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        npcTalk.enabled = false;
+        bossTalk.enabled = false;
     }
 
     // Update is called once per frame
@@ -59,11 +64,25 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.name == "Npc1")
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene");
+            npcTalk.enabled = true;
         }
 
         if (collision.name == "Boss1")
         {
+            bossTalk.enabled = true;
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        if (npcTalk.enabled)
+        {
+            npcTalk.enabled = false;
+        }
+
+        if (bossTalk.enabled)
+        {
+            bossTalk.enabled = false;
             UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene");
         }
     }

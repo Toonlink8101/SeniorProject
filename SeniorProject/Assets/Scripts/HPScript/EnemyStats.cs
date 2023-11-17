@@ -50,7 +50,7 @@ public class EnemyStats : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        controller.GetComponent<MasterBAttleScript>.setTarget(this.GameObject);
+        //controller.GetComponent<MasterBAttleScript>.setTarget(this.GameObject);
     }
 
 
