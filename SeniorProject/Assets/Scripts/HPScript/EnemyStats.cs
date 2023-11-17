@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
@@ -8,6 +9,7 @@ public class EnemyStats : MonoBehaviour
     public float CurrentHP;
     HealthBar Healthbar;
     public bool shielded = false;
+    public GameObject controller;
 
     private void Awake()
     {
@@ -15,6 +17,7 @@ public class EnemyStats : MonoBehaviour
         MaxHP = 100f;
         Healthbar = GetComponentInChildren<HealthBar>();
         Healthbar.updateHealthBar(CurrentHP, MaxHP);
+        controller = GameObject.FindGameObjectWithTag("CombatController");
     }
     // Start is called before the first frame update
     void Start()
@@ -44,6 +47,12 @@ public class EnemyStats : MonoBehaviour
         Healthbar.updateHealthBar(CurrentHP, MaxHP);
 
     }
+
+    private void OnMouseUpAsButton()
+    {
+        controller.GetComponent<MasterBAttleScript>.setTarget(this.GameObject);
+    }
+
 
     public void Shield() { 
         shielded=true;

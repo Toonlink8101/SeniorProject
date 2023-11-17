@@ -16,7 +16,7 @@ public class MasterBAttleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        
 
 
 
@@ -25,10 +25,11 @@ public class MasterBAttleScript : MonoBehaviour
 
     }
 
-    private void OnMouseDown()
-    {
-        target = gameObject;
+    public void setTarget(GameObject gameobject) {
+        target = gameobject;
+    
     }
+
     public void dealDmg(float dmg) {
         target.gameObject.GetComponent<EnemyStats>().TakeDamage(dmg);
     }
