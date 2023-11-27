@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public Text npcTalk;
     public Text bossTalk;
 
+    Boolean canMove = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,22 +33,25 @@ public class PlayerController : MonoBehaviour
     }
     void MovePlayer()
     {
-        Vector2 currentPosition = transform.position;
-        currentPosition.x += Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        if (canMove)
+        {
+            Vector2 currentPosition = transform.position;
+            currentPosition.x += Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
-        /* if (currentPosition.x < minX)    // (1)
-            currentPosition.x = minX;
-        if (currentPosition.x > maxX)
-            currentPosition.x = maxX; */
+            /* if (currentPosition.x < minX)    // (1)
+                currentPosition.x = minX;
+            if (currentPosition.x > maxX)
+                currentPosition.x = maxX; */
 
-        currentPosition.y += Input.GetAxis("Vertical") * speed * Time.deltaTime;
+            currentPosition.y += Input.GetAxis("Vertical") * speed * Time.deltaTime;
 
-        /* if (currentPosition.y < minY)    // (1)
-            currentPosition.y = minY;
-        if (currentPosition.y > maxY)
-            currentPosition.y = maxY; */
+            /* if (currentPosition.y < minY)    // (1)
+                currentPosition.y = minY;
+            if (currentPosition.y > maxY)
+                currentPosition.y = maxY; */
 
-        transform.position = currentPosition;
+            transform.position = currentPosition;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -54,7 +60,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)     // only roll while player is moving
             {
-                if (randEnc >= Random.Range(0, 100))
+                if (randEnc >= UnityEngine.Random.Range(0, 100))
                     UnityEngine.SceneManagement.SceneManager.LoadScene("BattleScene");
             }
         }
@@ -70,6 +76,7 @@ public class PlayerController : MonoBehaviour
         if (collision.name == "Boss1")
         {
             bossTalk.enabled = true;
+            canMove = false;
         }
     }
 
