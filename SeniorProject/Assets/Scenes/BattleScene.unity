@@ -2745,6 +2745,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1386997714560076054, guid: 53c7b4ad8f3e9544ca9475346eacf75f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 900eb49143e2c604eb069ad622957a24, type: 3}
+    - target: {fileID: 1386997714560076054, guid: 53c7b4ad8f3e9544ca9475346eacf75f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386997714560076054, guid: 53c7b4ad8f3e9544ca9475346eacf75f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3112443619382594825, guid: 53c7b4ad8f3e9544ca9475346eacf75f, type: 3}
       propertyPath: button
       value: 
@@ -2756,6 +2768,10 @@ PrefabInstance:
     - target: {fileID: 5187267675201834270, guid: 53c7b4ad8f3e9544ca9475346eacf75f, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473476960505309777, guid: 53c7b4ad8f3e9544ca9475346eacf75f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8473476960505309777, guid: 53c7b4ad8f3e9544ca9475346eacf75f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2810,6 +2826,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 668859481387210005, guid: ed5d4dbce4c0a084a8638af2bf42c1a8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 668859481387210005, guid: ed5d4dbce4c0a084a8638af2bf42c1a8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.48
+      objectReference: {fileID: 0}
     - target: {fileID: 1250357101119781098, guid: ed5d4dbce4c0a084a8638af2bf42c1a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.92
@@ -2849,6 +2873,18 @@ PrefabInstance:
     - target: {fileID: 1250357101119781098, guid: ed5d4dbce4c0a084a8638af2bf42c1a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673619441151475498, guid: ed5d4dbce4c0a084a8638af2bf42c1a8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1473147d0c30b3f43ab7185d19210ad1, type: 3}
+    - target: {fileID: 4673619441151475498, guid: ed5d4dbce4c0a084a8638af2bf42c1a8, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673619441151475498, guid: ed5d4dbce4c0a084a8638af2bf42c1a8, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7881880771692036963, guid: ed5d4dbce4c0a084a8638af2bf42c1a8, type: 3}
       propertyPath: shielded

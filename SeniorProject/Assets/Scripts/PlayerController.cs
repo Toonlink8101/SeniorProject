@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 10f;
     public float randEnc = 1f;
+    private Animator anim;
     /* private float minX = -5.5f;
     private float maxX = 5.5f;
     private float minY = -4.5f;     // disabled to remove artifical boundaries (1)
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         npcTalk.enabled = false;
         bossTalk.enabled = false;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove)
         {
+            
             Vector2 currentPosition = transform.position;
             currentPosition.x += Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
@@ -51,6 +54,11 @@ public class PlayerController : MonoBehaviour
                 currentPosition.y = maxY; */
 
             transform.position = currentPosition;
+            if (Input.GetAxis("Horizontal") > 0) { anim.Play("WalkRight"); }
+            else if(Input.GetAxis("Horizontal") < 0) { anim.Play("WalkLeft"); }
+            else if(Input.GetAxis("Vertical") > 0) { anim.Play("WalkingUp"); }
+            else if(Input.GetAxis("Vertical") < 0) { anim.Play("WalkDown"); }
+            else { anim.Play("Idle"); }
         }
     }
 
