@@ -19,6 +19,8 @@ public class MasterBAttleScript : MonoBehaviour
         etotal();
         Ptotal();
 
+        print(TotalPlayer); print(TotalEnemy);
+
     }
 
     // Update is called once per frame
@@ -63,9 +65,11 @@ public class MasterBAttleScript : MonoBehaviour
     }
 
     public void Ptotal() {
-        bool tester = target.gameObject.GetComponent<EnemyStats>().Pcheck();
-        if (tester) { TotalPlayer++; }
-    
+        foreach (GameObject target in all)
+        {
+            bool tester = target.gameObject.GetComponent<EnemyStats>().Pcheck();
+            if (tester) { TotalPlayer++; }
+        }
     }
 
 
