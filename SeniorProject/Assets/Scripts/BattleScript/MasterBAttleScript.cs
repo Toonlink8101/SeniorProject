@@ -11,6 +11,10 @@ public class MasterBAttleScript : MonoBehaviour
     public int deadPlayer = 0;
     public int TotalPlayer;
     public int TotalEnemy;
+   // public GameObject[] playersarray = new GameObject[20];
+  //  public int playersArraySize =0;
+    public int playeractions;
+    public int enemyActions;
 
     // Start is called before the first frame update
     void Awake()
@@ -18,9 +22,10 @@ public class MasterBAttleScript : MonoBehaviour
         all = GameObject.FindGameObjectsWithTag("Enemy");
         etotal();
         Ptotal();
-
+        //setplayerArray();
         print(TotalPlayer); print(TotalEnemy);
-
+        playeractions = TotalPlayer;
+        enemyActions = TotalEnemy;
     }
 
     // Update is called once per frame
@@ -28,7 +33,25 @@ public class MasterBAttleScript : MonoBehaviour
     {
         setTarget();
         checktoend();
+       // AutoRetaliate();
     }
+    public void AutoRetaliate() {
+        GameObject temp = target;
+        while (true) { 
+            target = all[Random.Range(0, all.Length)];
+            bool tester = target.gameObject.GetComponent<EnemyStats>().Pcheck();
+            if (tester)
+            {
+                dealDmg(Random.Range(0f,10f));
+                break;
+            }
+        
+        }
+        target = temp;
+
+    
+    }
+
 
     void checktoend() { 
         if(deadPlayer >= TotalPlayer) { endScene(); }
