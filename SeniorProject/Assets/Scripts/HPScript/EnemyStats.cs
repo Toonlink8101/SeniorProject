@@ -11,6 +11,11 @@ public class EnemyStats : MonoBehaviour
     public bool shielded = false;
     public GameObject controller;
 
+    public bool isTarget = false;
+
+    public bool isEnemy = false;
+    public bool isPlayer = false;
+
     private void Awake()
     {
         CurrentHP = 100f;
@@ -36,10 +41,12 @@ public class EnemyStats : MonoBehaviour
             shielded = false;
             return;
         }
-        if (CurrentHP < DMG)
+        if (CurrentHP <= DMG)
         {
             //Die
-
+            this.gameObject.SetActive(false);
+            if (isPlayer) { controller.GetComponent<MasterBAttleScript>().addDeadPlayer(); }
+            if (isEnemy) { controller.GetComponent<MasterBAttleScript>().addDeadEnemy(); }
         }
 
 
@@ -48,13 +55,28 @@ public class EnemyStats : MonoBehaviour
 
     }
 
-    private void OnMouseUpAsButton()
+     public void setTarget ()
     {
-        //controller.GetComponent<MasterBAttleScript>.setTarget(this.GameObject);
+        isTarget = true;
     }
 
+    public void notTarget() {
+        isTarget = false;
+    }
 
+    public bool checkTarget() {
+        return isTarget;
+    }
     public void Shield() { 
         shielded=true;
     }
+
+    public bool Echeck() {
+        return isEnemy;
+    }
+
+    public bool Pcheck() {
+        return isPlayer;
+    }
+
 }
